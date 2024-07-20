@@ -1,17 +1,19 @@
 const { app, BrowserWindow } = require("electron");
 const path = require("path");
 
-// Handle creating/removing shortcuts on Windows when installing/uninstalling.
+let mainWindow;
+
+// Handle creating / removing shortcuts on Windows when installing/uninstalling.
 if (require("electron-squirrel-startup")) {
   app.quit();
 }
 
 const createWindow = () => {
   // Create the browser window.
-  const mainWindow = new BrowserWindow({
+  mainWindow = new BrowserWindow({
     width: 800,
     height: 300,
-    icon: '/icons/icon.png',
+    icon: "/icons/icon.png",
     webPreferences: {
       preload: path.join(__dirname, "preload.js"),
     },
@@ -26,15 +28,20 @@ const createWindow = () => {
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools();
+
+  // Handle window close event to hide the window instead of closing it
+  mainWindow.on('close', function (event) {
+    if (!app.isQuiting) {
+      event.preventDefault();
+      mainWindow.hide();
+    }
+  });
 };
 
 // Since we don't want the user to control the audio via
 // hardware media keys, we will be disabling the ability
 // to do so.
-app.commandLine.appendSwitch(
-  "disable-features",
-  "HardwareMediaKeyHandling,MediaSessionService"
-);
+app.commandLine.appendSwitch("disable-features", "HardwareMediaKeyHandling,MediaSessionService");
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
@@ -53,9 +60,20 @@ app.on("window-all-closed", () => {
 app.on("activate", () => {
   // On macOS it's common to re-create a window in the app when the
   // dock icon is clicked and there are no other windows open.
-  if (BrowserWindow.getAllWindows().length === 0) {
+  if (mainWindow) {
+    if (mainWindow.isMinimized()) {
+      mainWindow.restore();
+    }
+    mainWindow.show();
+    mainWindow.focus();
+  } else {
     createWindow();
   }
+});
+
+// Listen for the quit signal to allow proper quitting of the app
+app.on('before-quit', () => {
+  app.isQuiting = true;
 });
 
 // In this file you can include the rest of your app's specific main process
@@ -72,10 +90,6 @@ rpc.on("ready", () => {
     state: "Sunroof",
     startTimestamp: new Date(),
     largeImageKey: "sunroof",
-    buttons: [
-      { label: "Test1", url: "https://google.com/" },
-      { label: "Test2", url: "https://youtube.com/" },
-    ],
   });
   console.log("Discord Rich Presence is ready!");
 });
