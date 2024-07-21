@@ -9,6 +9,7 @@
     "package": "electron-forge package",
     "make": "electron-forge make",
     "publish": "electron-forge publish",
+    "build": "electron-builder -mw",
     "lint": "echo \"No linting configured\""
   },
   "keywords": [],
@@ -32,7 +33,7 @@
     "electron-builder": "^24.13.3"
   },
   "build": {
-    "appId": "com.raymondhsu.sunroof-blaster",
+    "appId": "com.raymond.sunroofblaster",
     "productName": "Sunroof Blaster",
     "win": {
       "target": [
