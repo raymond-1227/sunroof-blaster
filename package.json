@@ -1,74 +1,11 @@
 {
   "name": "sunroof-blaster",
-  "productName": "Sunroof Blaster",
-  "version": "1.1.0",
-  "description": "Basically plays Sunroof until you quit the app.",
-  "main": "src/index.js",
+  "version": "2.0.0",
+  "type": "module",
   "scripts": {
-    "start": "electron-forge start",
-    "package": "electron-forge package",
-    "make": "electron-forge make",
-    "publish": "electron-forge publish",
-    "build": "electron-builder -mw",
-    "lint": "echo \"No linting configured\""
-  },
-  "keywords": [],
-  "author": {
-    "name": "Raymond Hsu",
-    "email": "raymondhsu@duck.com"
-  },
-  "license": "GPLv3",
-  "dependencies": {
-    "discord-rpc": "^4.0.1",
-    "electron-squirrel-startup": "^1.0.1"
+    "tauri": "tauri"
   },
   "devDependencies": {
-    "@electron-forge/cli": "^7.4.0",
-    "@electron-forge/maker-deb": "^7.4.0",
-    "@electron-forge/maker-rpm": "^7.4.0",
-    "@electron-forge/maker-squirrel": "^7.4.0",
-    "@electron-forge/maker-zip": "^7.4.0",
-    "@electron-forge/plugin-auto-unpack-natives": "^7.4.0",
-    "electron": "31.2.1",
-    "electron-builder": "^24.13.3"
-  },
-  "build": {
-    "appId": "com.raymond.sunroofblaster",
-    "productName": "Sunroof Blaster",
-    "win": {
-      "target": [
-        {
-          "target": "nsis",
-          "arch": [
-            "x64",
-            "ia32"
-          ]
-        }
-      ],
-      "icon": "icons/icon.ico"
-    },
-    "mac": {
-      "target": [
-        {
-          "target": "dmg",
-          "arch": [
-            "universal"
-          ]
-        }
-      ],
-      "icon": "icons/icon.icns"
-    },
-    "linux": {
-      "target": [
-        {
-          "target": "deb",
-          "arch": [
-            "x64",
-            "ia32"
-          ]
-        }
-      ],
-      "icon": "icons/icon.png"
-    }
+    "@tauri-apps/cli": "^1"
   }
 }

@@ -1,13 +1,7 @@
-# Sunroof Blaster
+# Tauri + Vanilla
 
-## About
-Basically loops the song Sunroof until you quit the app.
-This app was designed for Moodl, he surely loves Sunroof the song.
+This template should help get you started developing with Tauri in vanilla HTML, CSS and Javascript.
 
-## Features
-- Dynamic Lyrics
-- Keeps looping the song
+## Recommended IDE Setup
 
-## Credits
-[Electron](https://www.electronjs.org/)
-[Rabbit Lyrics](https://github.com/guoyunhe/rabbit-lyrics)
+- [VS Code](https://code.visualstudio.com/) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
