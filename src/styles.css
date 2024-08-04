@@ -28,6 +28,7 @@
   border: none !important;
   border-radius: 5px;
   background-color: #e0e0e0 !important;
+  box-shadow: 0 0 10px #00000050;
 }
 
 .rabbit-lyrics__inline--active {

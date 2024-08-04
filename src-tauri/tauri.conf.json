@@ -20,7 +20,8 @@
       {
         "title": "Sunroof Blaster",
         "width": 800,
-        "height": 300
+        "height": 300,
+        "resizable": false
       }
     ],
     "systemTray": {
