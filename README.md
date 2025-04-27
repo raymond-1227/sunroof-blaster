@@ -1,7 +1,17 @@
-# Tauri + Vanilla
+# Sunroof Blaster
 
-This template should help get you started developing with Tauri in vanilla HTML, CSS and Javascript.
+Basically plays Sunroof the song until you quit the app.
 
-## Recommended IDE Setup
+## Testing
 
-- [VS Code](https://code.visualstudio.com/) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
+To test the software, run the following commands:
+
+1. Install dependencies
+```
+npm i
+```
+
+2. Test run
+```
+npm run tauri dev
+```
